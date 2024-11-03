@@ -16,3 +16,26 @@ export const navItems = [
     path: "/contact-us",
   },
 ];
+
+export const productsCategory = [
+  {
+    name: "Computers",
+    category: "computers",
+  },
+  {
+    name: "Phones",
+    category: "phones",
+  },
+  {
+    name: "Smart watches",
+    category: "smart-watches",
+  },
+  {
+    name: "Chargers",
+    category: "chargers",
+  },
+  {
+    name: "Power Banks",
+    category: "power-banks",
+  },
+];

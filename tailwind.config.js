@@ -6,6 +6,7 @@ export default {
     extend: {
       colors: {
         brand: "#9538E2",
+        "brand-gray": "rgba(9, 8, 15, 0.05)",
       },
       fontFamily: {
         sans: ["Sora", "sans-serif"],
