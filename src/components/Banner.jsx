@@ -16,7 +16,7 @@ export default function Banner() {
               the next level. From smart devices to the coolest accessories, we
               have it all!
             </p>
-            <Button to="/products">Shop Now</Button>
+            <Button to="/">Shop Now</Button>
           </div>
         </div>
       </div>

@@ -6,7 +6,15 @@ export default function Home() {
   return (
     <>
       <Banner />
-      <FloatSection />
+      <FloatSection>
+        <figure className="h-full w-full">
+          <img
+            src="/assets/banner.jpg"
+            alt="banner"
+            className="h-full max-h-[580px] w-full rounded-xl object-cover"
+          />
+        </figure>
+      </FloatSection>
       <Products />
     </>
   );

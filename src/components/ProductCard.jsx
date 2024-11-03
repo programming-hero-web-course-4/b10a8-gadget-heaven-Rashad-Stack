@@ -14,7 +14,9 @@ export default function ProductCard() {
         <h2 className="card-title">Dell XPS 13</h2>
         <p className="text-gray-600">Price: 99.99k</p>
         <div className="card-actions">
-          <Button type="outline">View Details</Button>
+          <Button to="product/id" type="outline">
+            View Details
+          </Button>
         </div>
       </div>
     </div>
