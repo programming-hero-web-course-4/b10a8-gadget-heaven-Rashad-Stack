@@ -14,7 +14,7 @@ export default function ProductCategories() {
   }
 
   return (
-    <ul className="w-60 space-y-3 rounded-xl bg-white p-4">
+    <ul className="fle w-full space-y-3 rounded-xl bg-white p-4 max-sm:mx-2 md:w-60">
       <li
         className={`${!categoryParams ? "bg-brand text-white" : "bg-base-300 text-gray-600"} rounded-full text-sm`}
       >
