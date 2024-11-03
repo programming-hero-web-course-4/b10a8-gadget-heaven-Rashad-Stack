@@ -1,11 +1,16 @@
 import { HiOutlineHeart, HiOutlineShoppingCart } from "react-icons/hi2";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { navItems } from "../data";
 import NavbarIcons from "./NavbarIcons";
 
 export default function Navbar() {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   return (
-    <nav className="bg-brand outline-base-300 mt-2 rounded-t-xl -outline outline-offset-2 sm:p-5 md:mx-3 lg:mx-10">
+    <nav
+      className={`${isHome && "bg-brand"} outline-base-300 mt-2 rounded-t-xl -outline outline-offset-2 sm:p-2 md:mx-3 lg:mx-10`}
+    >
       <div className="container mx-auto max-w-7xl">
         <div className="navbar">
           <div className="navbar-start">
@@ -13,7 +18,7 @@ export default function Navbar() {
               <div
                 tabIndex={0}
                 role="button"
-                className="mr-2 text-white md:text-xl lg:hidden"
+                className={`${isHome ? "text-white" : "text-black"} mr-2 md:text-xl lg:hidden`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -41,14 +46,19 @@ export default function Navbar() {
                 ))}
               </ul>
             </div>
-            <Link className="text-nowrap text-sm font-semibold text-white md:text-xl">
+            <Link
+              className={`${isHome ? "text-white" : "text-black"} text-nowrap text-sm font-semibold md:text-xl`}
+            >
               Gadget Heaven
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               {navItems.map((item) => (
-                <li key={item.name} className="text-white">
+                <li
+                  key={item.name}
+                  className={`${isHome ? "text-white" : "text-black"}`}
+                >
                   <NavLink to={item.path}>{item.name}</NavLink>
                 </li>
               ))}
