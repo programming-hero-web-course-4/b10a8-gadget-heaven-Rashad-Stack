@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useLocation, useSearchParams } from "react-router-dom";
 import Button from "./Button";
 
-export default function Hero({ title, description }) {
+export default function Hero({ title, description, className }) {
   const [searchParam, setSearchParam] = useSearchParams();
   const activeTab = searchParam.get("tab") || "cart";
   const location = useLocation();
@@ -16,7 +16,7 @@ export default function Hero({ title, description }) {
   return (
     <section className="bg-brand">
       <div
-        className={`container mx-auto max-w-7xl space-y-5 pt-10 ${isDashboard ? "pb-0" : "pb-40"}`}
+        className={`container mx-auto max-w-7xl space-y-5 pt-10 ${className}`}
       >
         <h1 className="text-center text-4xl font-bold text-base-100">
           {title}
@@ -49,4 +49,5 @@ export default function Hero({ title, description }) {
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };

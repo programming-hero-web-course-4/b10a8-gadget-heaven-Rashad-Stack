@@ -1,8 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import GetInTouch from "./components/GetInTouch";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import RootLayout from "./pages/RootLayout";
+import Statistics from "./pages/Statistics";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "statistics",
-        element: <div>statistics...</div>,
+        element: <Statistics />,
       },
       {
         path: "/dashboard",
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact-us",
-        element: <div>contact us...</div>,
+        element: <GetInTouch />,
       },
     ],
   },
