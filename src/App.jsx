@@ -11,19 +11,19 @@ import { getProducts } from "./utils/loaders";
 const router = createBrowserRouter([
   {
     path: "/",
+    loader: getProducts,
     element: <RootLayout />,
     children: [
       {
         path: "/",
         element: <Home />,
-        loader: getProducts,
       },
       {
-        path: "product/:productId",
+        path: "/product/:productId",
         element: <ProductDetails />,
       },
       {
-        path: "statistics",
+        path: "/statistics",
         element: <Statistics />,
       },
       {

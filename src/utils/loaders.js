@@ -1,1 +1,1 @@
-export const getProducts = () => fetch("./products.json");
+export const getProducts = () => fetch("/products.json");
