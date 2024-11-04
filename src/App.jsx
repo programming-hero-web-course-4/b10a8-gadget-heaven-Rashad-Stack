@@ -1,10 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import GlobalStateProvider from "./context/GlobalStateProvider";
 import ContactUs from "./pages/ContactUs";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import RootLayout from "./pages/RootLayout";
 import Statistics from "./pages/Statistics";
+import { getProducts } from "./utils/loaders";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: getProducts,
       },
       {
         path: "product/:productId",
@@ -36,7 +39,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <GlobalStateProvider>
+      <RouterProvider router={router} />
+    </GlobalStateProvider>
+  );
 }
 
 export default App;

@@ -1,10 +1,23 @@
 import { HiOutlineHeart, HiOutlineShoppingCart } from "react-icons/hi2";
 import ReactStars from "react-rating-stars-component";
+import { useLocation } from "react-router-dom";
 import Button from "../components/Button";
 import FloatSection from "../components/FloatSection";
 import Hero from "../components/Hero";
 
 export default function ProductDetails() {
+  const state = useLocation();
+
+  const {
+    product_title,
+    price,
+    availability,
+    description,
+    specification,
+    rating,
+    product_image,
+  } = state?.state || {};
+
   return (
     <>
       <Hero
@@ -15,33 +28,36 @@ export default function ProductDetails() {
       />
       <FloatSection>
         <div className="card bg-base-100 shadow-xl lg:card-side">
-          <figure>
+          <figure className="p-5">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-              alt="Album"
+              src={product_image}
+              alt={product_title}
+              className="max-h-[500px] w-full rounded-xl object-cover"
             />
           </figure>
           <div className="card-body space-y-2">
-            <h2 className="card-title">Samsung Galaxy S23 Ultra</h2>
+            <h2 className="card-title">{product_title}</h2>
             <p className="flex-grow-0 font-semibold text-gray-700">
-              Price: $99.99
+              Price: ${price}
             </p>
-            <span className="w-fit rounded-full border border-success bg-success/15 px-4 py-2 text-sm font-semibold text-success">
-              In Stock
+            <span
+              className={`${
+                availability
+                  ? "border-success bg-success/15 text-success"
+                  : "border-error bg-error/15 text-error"
+              } w-fit rounded-full border px-4 py-2 text-sm font-semibold`}
+            >
+              {availability ? "In Stock" : "Not In Stock"}
             </span>
-            <p className="flex-grow-0 text-sm text-gray-600">
-              Ultra-slim, high-performance laptop with 13.4-inch Infinity Edge
-              display.
-            </p>
+            <p className="flex-grow-0 text-sm text-gray-600">{description}</p>
             <div className="space-y-3">
               <p className="flex-grow-0 text-sm font-semibold text-gray-700">
                 Specification:
               </p>
               <ol className="ml-5 list-decimal space-y-2 text-sm text-gray-600">
-                <li>Intel i7 11th Gen</li>
-                <li>16GB RAM</li>
-                <li>512GB SSD</li>
-                <li>Touchscreen</li>
+                {specification?.map((spec, index) => (
+                  <li key={index}>{spec}</li>
+                ))}
               </ol>
             </div>
 
@@ -55,11 +71,11 @@ export default function ProductDetails() {
                   size={30}
                   activeColor="#ffd700"
                   isHalf={true}
-                  value={4.8}
+                  value={rating}
                   edit={false}
                 />
                 <span className="rounded-full bg-base-300 px-3 py-1 text-sm">
-                  4.8
+                  {rating}
                 </span>
               </div>
             </div>

@@ -7,6 +7,7 @@ export default function Button({
   children,
   handleClick,
   className,
+  state,
 }) {
   const variant = {
     default: "bg-base-100 text-brand",
@@ -21,6 +22,7 @@ export default function Button({
   return to ? (
     <Link
       to={to}
+      state={state}
       className={`${variant[type]} ${className} flex items-center justify-center gap-2 rounded-full px-6 py-2 text-center font-semibold transition-transform active:scale-95`}
     >
       {children}
@@ -37,6 +39,7 @@ export default function Button({
 
 Button.propTypes = {
   to: PropTypes.string,
+  state: PropTypes.object,
   children: PropTypes.node,
   type: PropTypes.string,
   className: PropTypes.string,

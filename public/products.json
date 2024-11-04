@@ -1,0 +1,60 @@
+[
+  {
+    "product_id": 0,
+    "product_title": "Apple MacBook Pro",
+    "product_image": "https://i.postimg.cc/sDqJSZFD/h1-product-1.jpg",
+    "category": "computers",
+    "price": 2437,
+    "description": "excepteur exercitation consectetur laboris elit quis exercitation est",
+    "specification": ["Mr.", "Mrs.", "Mr.", "Mrs.", "Mrs."],
+    "availability": true,
+    "rating": 1.4
+  },
+
+  {
+    "product_id": 1,
+    "product_title": "Apple iPhone 6s 4.7-Inch Black 128GB",
+    "product_image": "https://i.postimg.cc/Jzx67f6h/h1-product-17-768x768.jpg",
+    "category": "phones",
+    "price": 3009,
+    "description": "enim aute qui nisi id officia anim laborum excepteur enim veniam Lorem amet sint laboris eu est",
+    "specification": ["Mrs."],
+    "availability": false,
+    "rating": 4.5
+  },
+  {
+    "product_id": 2,
+    "product_title": "Cubot Ones 4.7 Inch 1GB Android 4.2 GPS 3G",
+    "product_image": "https://i.postimg.cc/7Pcyw2CR/h2-product-4-768x768.jpg",
+    "category": "smart-watches",
+    "price": 9509,
+    "description": "mollit tempor consectetur deserunt esse mollit pariatur anim aliquip veniam consectetur duis minim",
+    "specification": ["Ms.", "Mr."],
+    "availability": true,
+    "rating": 4.5
+  },
+
+  {
+    "product_id": 3,
+    "product_title": "Rustic Frozen Bacon",
+    "product_image": "https://i.ibb.co.com/zxrfnD0/phone-3.jpg",
+    "category": "chargers",
+    "price": 5257,
+    "description": "laboris elit sunt aliquip qui exercitation dolor in",
+    "specification": ["Ms.", "Mrs.", "Mrs.", "Ms.", "Ms."],
+    "availability": false,
+    "rating": 3
+  },
+
+  {
+    "product_id": 4,
+    "product_title": "Handmade Steel Tuna",
+    "product_image": "https://i.ibb.co.com/pWW4gGV/phone-4.jpg",
+    "category": "power-banks",
+    "price": 7907,
+    "description": "est voluptate ullamco",
+    "specification": ["Mrs.", "Dr.", "Dr.", "Ms.", "Miss"],
+    "availability": true,
+    "rating": 3.1
+  }
+]
