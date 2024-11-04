@@ -1,9 +1,13 @@
 import { HiOutlineHeart, HiOutlineShoppingCart } from "react-icons/hi2";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { navItems } from "../data";
+import useGlobalState from "../hooks/useGlobalState";
 import NavbarIcons from "./NavbarIcons";
 
 export default function Navbar() {
+  const { state } = useGlobalState();
+  const { wishlist, cart } = state || {};
+
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -71,11 +75,11 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="navbar-end space-x-2">
-            <NavbarIcons total={3}>
+            <NavbarIcons total={cart.length}>
               <HiOutlineShoppingCart />
             </NavbarIcons>
 
-            <NavbarIcons total={5}>
+            <NavbarIcons total={wishlist.length}>
               <HiOutlineHeart />
             </NavbarIcons>
           </div>

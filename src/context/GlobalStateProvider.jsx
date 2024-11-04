@@ -1,15 +1,54 @@
 import PropTypes from "prop-types";
 import { createContext, useReducer } from "react";
-import { SET_PRODUCTS } from "./actionType";
+import { isExist } from "../utils";
+import {
+  ADD_TO_CART,
+  ADD_TO_WISHLIST,
+  REMOVE_FROM_CART,
+  REMOVE_FROM_WISHLIST,
+  SET_PRODUCTS,
+} from "./actionType";
 
 // Initial state
-const initialState = { products: [] };
+const initialState = { products: [], cart: [], wishlist: [] };
 
 // Reducer
 const reducer = (state, action) => {
   switch (action.type) {
     case SET_PRODUCTS:
       return { ...state, products: action.payload };
+    case ADD_TO_CART:
+      if (isExist(state.cart, action.payload)) {
+        alert("Product already in cart");
+        return state;
+      }
+      return {
+        ...state,
+        cart: [...state.cart, { ...action.payload, cart: true }],
+      };
+    case ADD_TO_WISHLIST:
+      if (isExist(state.wishlist, action.payload)) {
+        alert("Product already in wishlist");
+        return state;
+      }
+      return {
+        ...state,
+        wishlist: [...state.wishlist, { ...action.payload, wishlist: true }],
+      };
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter(
+          (product) => product.product_id !== action.payload,
+        ),
+      };
+    case REMOVE_FROM_WISHLIST:
+      return {
+        ...state,
+        wishlist: state.wishlist.filter(
+          (product) => product.product_id !== action.payload,
+        ),
+      };
     default:
       return state;
   }

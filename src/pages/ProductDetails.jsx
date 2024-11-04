@@ -4,8 +4,11 @@ import { useLocation } from "react-router-dom";
 import Button from "../components/Button";
 import FloatSection from "../components/FloatSection";
 import Hero from "../components/Hero";
+import { ADD_TO_CART, ADD_TO_WISHLIST } from "../context/actionType";
+import useGlobalState from "../hooks/useGlobalState";
 
 export default function ProductDetails() {
+  const { dispatch } = useGlobalState();
   const state = useLocation();
 
   const {
@@ -81,10 +84,20 @@ export default function ProductDetails() {
             </div>
 
             <div className="card-actions items-center">
-              <Button type="primary">
+              <Button
+                type="primary"
+                handleClick={() =>
+                  dispatch({ type: ADD_TO_CART, payload: state.state })
+                }
+              >
                 Add To Card <HiOutlineShoppingCart className="text-xl" />
               </Button>
-              <button className="rounded-full border p-2 text-xl transition-transform active:scale-75">
+              <button
+                className="rounded-full border p-2 text-xl transition-transform active:scale-75"
+                onClick={() =>
+                  dispatch({ type: ADD_TO_WISHLIST, payload: state.state })
+                }
+              >
                 <HiOutlineHeart />
               </button>
             </div>
