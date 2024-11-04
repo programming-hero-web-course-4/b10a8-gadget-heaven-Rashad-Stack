@@ -1,15 +1,52 @@
-export default function Hero() {
+import PropTypes from "prop-types";
+import { useLocation, useSearchParams } from "react-router-dom";
+import Button from "./Button";
+
+export default function Hero({ title, description }) {
+  const [searchParam, setSearchParam] = useSearchParams();
+  const activeTab = searchParam.get("tab") || "cart";
+  const location = useLocation();
+  const isDashboard = location.pathname === "/dashboard";
+
+  function handleClick(value) {
+    searchParam.set("tab", value);
+    setSearchParam(searchParam);
+  }
+
   return (
     <section className="bg-brand">
-      <div className="container mx-auto max-w-7xl space-y-5 pb-40 pt-10">
-        <h1 className="text-base-100 text-center text-4xl font-bold">
-          Product Details
+      <div
+        className={`container mx-auto max-w-7xl space-y-5 pt-10 ${isDashboard ? "pb-0" : "pb-40"}`}
+      >
+        <h1 className="text-center text-4xl font-bold text-base-100">
+          {title}
         </h1>
-        <p className="text-base-300 mx-auto max-w-2xl text-center text-sm">
-          Explore the latest gadgets that will take your experience to the next
-          level. From smart devices to the coolest accessories, we have it all!
+        <p className="mx-auto max-w-2xl text-center text-sm text-base-300">
+          {description}
         </p>
+
+        {isDashboard && (
+          <div className="flex items-center justify-center gap-5 py-5">
+            <Button
+              type={activeTab === "cart" ? "default" : "outline-base"}
+              handleClick={() => handleClick("cart")}
+            >
+              Cart
+            </Button>
+            <Button
+              handleClick={() => handleClick("wishlist")}
+              type={activeTab === "wishlist" ? "default" : "outline-base"}
+            >
+              Wishlist
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
 }
+
+Hero.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};

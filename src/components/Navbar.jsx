@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${isHome && "bg-brand"} outline-base-300 mt-2 rounded-t-xl -outline outline-offset-2 sm:p-2 md:mx-3 lg:mx-10`}
+      className={`${isHome && "bg-brand"} mt-2 rounded-t-xl -outline outline-offset-2 outline-base-300 sm:p-2 md:mx-3 lg:mx-10`}
     >
       <div className="container mx-auto max-w-7xl">
         <div className="navbar">
@@ -37,7 +37,7 @@ export default function Navbar() {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
               >
                 {navItems.map((item) => (
                   <li key={item.name}>
@@ -55,11 +55,17 @@ export default function Navbar() {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               {navItems.map((item) => (
-                <li
-                  key={item.name}
-                  className={`${isHome ? "text-white" : "text-black"}`}
-                >
-                  <NavLink to={item.path}>{item.name}</NavLink>
+                <li key={item.name}>
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      isActive
+                        ? `${isHome ? "bg-transparent font-bold !text-white underline visited:text-white hover:!bg-transparent focus:!bg-transparent active:!bg-transparent" : "font-bold !text-brand hover:!bg-transparent focus:!bg-transparent active:!bg-transparent"}`
+                        : `${isHome ? "text-white hover:!bg-transparent focus:!bg-transparent active:!bg-transparent" : "text-black hover:!bg-transparent focus:!bg-transparent active:!bg-transparent"}`
+                    }
+                  >
+                    {item.name}
+                  </NavLink>
                 </li>
               ))}
             </ul>

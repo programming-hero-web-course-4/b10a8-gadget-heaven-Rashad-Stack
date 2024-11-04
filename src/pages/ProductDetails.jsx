@@ -7,9 +7,13 @@ import Hero from "../components/Hero";
 export default function ProductDetails() {
   return (
     <>
-      <Hero />
+      <Hero
+        title="Product Details"
+        description="Explore the latest gadgets that will take your experience to the next
+          level. From smart devices to the coolest accessories, we have it all!"
+      />
       <FloatSection>
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div className="card bg-base-100 shadow-xl lg:card-side">
           <figure>
             <img
               src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
@@ -21,7 +25,7 @@ export default function ProductDetails() {
             <p className="flex-grow-0 font-semibold text-gray-700">
               Price: $99.99
             </p>
-            <span className="bg-success/15 text-success border-success w-fit rounded-full border px-4 py-2 text-sm font-semibold">
+            <span className="w-fit rounded-full border border-success bg-success/15 px-4 py-2 text-sm font-semibold text-success">
               In Stock
             </span>
             <p className="flex-grow-0 text-sm text-gray-600">
@@ -53,7 +57,7 @@ export default function ProductDetails() {
                   value={4.8}
                   edit={false}
                 />
-                <span className="bg-base-300 rounded-full px-3 py-1 text-sm">
+                <span className="rounded-full bg-base-300 px-3 py-1 text-sm">
                   4.8
                 </span>
               </div>
