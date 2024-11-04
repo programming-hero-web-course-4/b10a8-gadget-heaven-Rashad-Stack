@@ -28,7 +28,7 @@ export default function Button({
   ) : (
     <button
       onClick={handleClick}
-      className={`${variant[type]} flex items-center justify-center gap-2 rounded-full px-6 py-2 text-center font-semibold transition-transform active:scale-95`}
+      className={`${variant[type]} flex w-fit items-center justify-center gap-2 rounded-full px-6 py-2 text-center font-semibold transition-transform active:scale-95`}
     >
       {children}
     </button>
