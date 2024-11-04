@@ -7,6 +7,7 @@ import {
   REMOVE_FROM_CART,
   REMOVE_FROM_WISHLIST,
   SET_PRODUCTS,
+  SORT_BY_PRICE,
 } from "./actionType";
 
 // Initial state
@@ -48,6 +49,11 @@ const reducer = (state, action) => {
         wishlist: state.wishlist.filter(
           (product) => product.product_id !== action.payload,
         ),
+      };
+    case SORT_BY_PRICE:
+      return {
+        ...state,
+        cart: [...state.cart].sort((a, b) => b.price - a.price),
       };
     default:
       return state;
