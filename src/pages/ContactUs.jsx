@@ -1,3 +1,11 @@
+import GetInTouch from "../components/GetInTouch";
+import MapLocation from "../components/MapLocation";
+
 export default function ContactUs() {
-  return <div>ContactUs</div>;
+  return (
+    <>
+      <GetInTouch />
+      <MapLocation />
+    </>
+  );
 }

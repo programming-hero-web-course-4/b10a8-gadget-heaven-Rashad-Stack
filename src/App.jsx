@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import GetInTouch from "./components/GetInTouch";
+import ContactUs from "./pages/ContactUs";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact-us",
-        element: <GetInTouch />,
+        element: <ContactUs />,
       },
     ],
   },
