@@ -1,12 +1,15 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-white py-10">
+    <footer className="mt-20 border-t border-gray-200 bg-white py-10">
       <div className="container mx-auto max-w-7xl text-center">
-        <h2 className="text-lg font-semibold text-gray-800">Gadget Heaven</h2>
+        <h2 className="text-xl font-bold text-gray-800 md:text-2xl">
+          Gadget Heaven
+        </h2>
         <p className="mb-8 mt-2 text-sm text-gray-500">
           Leading the way in cutting-edge technology and innovation.
         </p>
-        <div className="flex flex-wrap justify-center gap-10 md:gap-20">
+        <div className="mb-5 border" />
+        <div className="mx-auto flex max-w-2xl flex-wrap justify-between gap-10 md:gap-20">
           <div>
             <h3 className="text-sm font-bold text-gray-800">Services</h3>
             <ul className="mt-2 space-y-1 text-sm text-gray-500">
