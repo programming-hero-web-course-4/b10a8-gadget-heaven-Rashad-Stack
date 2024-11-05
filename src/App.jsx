@@ -1,5 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import GlobalStateProvider from "./context/GlobalStateProvider";
+
+import { HelmetProvider } from "react-helmet-async";
+import ProductContainer from "./components/ProductContainer";
+import { GlobalStateProvider } from "./context/GlobalStateProvider";
 import ContactUs from "./pages/ContactUs";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
@@ -17,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        children: [
+          { index: true, element: <ProductContainer /> },
+          { path: ":category", element: <ProductContainer /> },
+        ],
       },
       {
         path: "/product/:productId",
@@ -40,9 +47,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <GlobalStateProvider>
-      <RouterProvider router={router} />
-    </GlobalStateProvider>
+    <HelmetProvider>
+      <GlobalStateProvider>
+        <RouterProvider router={router} />
+      </GlobalStateProvider>
+    </HelmetProvider>
   );
 }
 

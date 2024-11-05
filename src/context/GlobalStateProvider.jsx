@@ -4,6 +4,7 @@ import { isExist } from "../utils";
 import {
   ADD_TO_CART,
   ADD_TO_WISHLIST,
+  CLEAR_CART,
   REMOVE_FROM_CART,
   REMOVE_FROM_WISHLIST,
   SET_PRODUCTS,
@@ -55,6 +56,11 @@ const reducer = (state, action) => {
         ...state,
         cart: [...state.cart].sort((a, b) => b.price - a.price),
       };
+    case CLEAR_CART:
+      return {
+        ...state,
+        cart: [],
+      };
     default:
       return state;
   }
@@ -64,7 +70,7 @@ const reducer = (state, action) => {
 const GlobalStateContext = createContext(initialState);
 
 // Provider component
-export default function GlobalStateProvider({ children }) {
+function GlobalStateProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
@@ -78,4 +84,4 @@ GlobalStateProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export { GlobalStateContext };
+export { GlobalStateContext, GlobalStateProvider };

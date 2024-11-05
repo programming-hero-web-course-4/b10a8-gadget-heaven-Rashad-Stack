@@ -147,7 +147,7 @@ export default function DashboardChart() {
   );
 }
 
-function CustomLegend({ payload }) {
+function CustomLegend({ payload = [] }) {
   return (
     <div className="mt-5 flex items-center justify-center gap-5">
       {payload.map((entry, index) => (
@@ -166,6 +166,4 @@ function CustomLegend({ payload }) {
   );
 }
 
-CustomLegend.propTypes = {
-  payload: PropTypes.array.isRequired,
-};
+CustomLegend.propTypes = { payload: PropTypes.array };

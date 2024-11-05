@@ -1,5 +1,5 @@
+import { Outlet } from "react-router-dom";
 import ProductCategories from "./ProductCategories";
-import ProductContainer from "./ProductContainer";
 
 export default function Products() {
   return (
@@ -10,8 +10,7 @@ export default function Products() {
         </h1>
         <div className="flex flex-wrap gap-5">
           <ProductCategories />
-
-          <ProductContainer />
+          <Outlet />
         </div>
       </div>
     </section>

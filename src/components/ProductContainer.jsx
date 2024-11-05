@@ -1,23 +1,19 @@
-import { useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import useGlobalState from "../hooks/useGlobalState";
 import ProductCard from "./ProductCard";
 
 export default function ProductContainer() {
-  const [searchParam] = useSearchParams();
-  const categoryParams = searchParam.get("category");
-
+  const { pathname } = useLocation();
   const { state } = useGlobalState();
   const { products = [] } = state || {};
 
-  console.log(products);
+  const path = pathname.substring(1);
 
   return (
     <div className="grid flex-1 gap-4 rounded-xl max-sm:px-2 sm:grid-cols-2 lg:grid-cols-3">
       {products.length > 0 &&
         products
-          .filter(
-            (product) => product.category === categoryParams || !categoryParams,
-          )
+          .filter((product) => product.category === path || !path)
           .map((product) => (
             <ProductCard key={product.product_id} product={product} />
           ))}

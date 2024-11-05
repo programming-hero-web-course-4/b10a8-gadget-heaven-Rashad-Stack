@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { HiOutlineHeart, HiOutlineShoppingCart } from "react-icons/hi2";
 import ReactStars from "react-rating-stars-component";
 import { useLocation } from "react-router-dom";
@@ -23,6 +24,10 @@ export default function ProductDetails() {
 
   return (
     <>
+      <Helmet>
+        <title>Gadget Heaven | {product_title}</title>
+      </Helmet>
+
       <Hero
         title="Product Details"
         description="Explore the latest gadgets that will take your experience to the next
