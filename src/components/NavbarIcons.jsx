@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 export default function NavbarIcons({ total, children }) {
+  const { category } = useParams();
   const location = useLocation();
-  const isHome = location.pathname === "/";
+  const isHome =
+    location.pathname === "/" || location.pathname === `/${category}`;
 
   return (
     <Link
-      className={`${isHome ? "border-none bg-white" : "border-base-300 border-2"} relative rounded-full p-2 text-sm md:p-3 md:text-lg`}
+      className={`${isHome ? "border-none bg-white" : "border-2 border-base-300"} relative rounded-full p-2 text-sm md:p-3 md:text-lg`}
     >
       {total > 0 && (
         <span className="top- absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-400 text-center text-xs text-white md:h-6 md:w-6">

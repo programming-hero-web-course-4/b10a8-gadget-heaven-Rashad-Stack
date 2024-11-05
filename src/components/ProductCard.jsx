@@ -13,7 +13,7 @@ export default function ProductCard({ product = {} }) {
         <h2 className="card-title">{product_title}</h2>
         <p className="text-gray-600">Price: {price}k</p>
         <div className="card-actions">
-          <Button state={product} to={`product/${product_id}`} type="outline">
+          <Button state={product} to={`/product/${product_id}`} type="outline">
             View Details
           </Button>
         </div>
