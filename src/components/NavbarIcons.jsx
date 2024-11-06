@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link, useLocation, useParams } from "react-router-dom";
 
-export default function NavbarIcons({ total, children }) {
+export default function NavbarIcons({ to, total, children }) {
   const { category } = useParams();
   const location = useLocation();
   const isHome =
@@ -9,6 +9,7 @@ export default function NavbarIcons({ total, children }) {
 
   return (
     <Link
+      to={to}
       className={`${isHome ? "border-none bg-white" : "border-2 border-base-300"} relative rounded-full p-2 text-sm md:p-3 md:text-lg`}
     >
       {total > 0 && (
@@ -25,4 +26,5 @@ export default function NavbarIcons({ total, children }) {
 NavbarIcons.propTypes = {
   children: PropTypes.node,
   total: PropTypes.number,
+  to: PropTypes.string,
 };

@@ -8,6 +8,7 @@ export default function Button({
   handleClick,
   className,
   state,
+  disabled,
 }) {
   const variant = {
     default: "bg-base-100 text-brand",
@@ -30,7 +31,8 @@ export default function Button({
   ) : (
     <button
       onClick={handleClick}
-      className={`${variant[type]} flex w-fit items-center justify-center gap-2 rounded-full px-6 py-2 text-center font-semibold transition-transform active:scale-95`}
+      className={`${variant[type]} flex w-fit items-center justify-center gap-2 rounded-full px-6 py-2 text-center font-semibold transition-transform active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+      disabled={disabled}
     >
       {children}
     </button>
@@ -44,4 +46,5 @@ Button.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
   handleClick: PropTypes.func,
+  disabled: PropTypes.bool,
 };

@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import { CLEAR_CART } from "../context/actionType";
 import useGlobalState from "../hooks/useGlobalState";
 
 export default function PaymentSuccess({ setOpen }) {
   const { state, dispatch } = useGlobalState();
   const { cart } = state || {};
+
+  const navigate = useNavigate();
 
   const totalCost = cart.reduce((acc, product) => acc + product.price, 0);
 
@@ -20,6 +23,7 @@ export default function PaymentSuccess({ setOpen }) {
         onClick={() => {
           dispatch({ type: CLEAR_CART });
           setOpen((open) => !open);
+          navigate("/");
         }}
       >
         Close

@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { createContext, useReducer } from "react";
-import { isExist } from "../utils";
 import {
   ADD_TO_CART,
   ADD_TO_WISHLIST,
@@ -20,22 +19,25 @@ const reducer = (state, action) => {
     case SET_PRODUCTS:
       return { ...state, products: action.payload };
     case ADD_TO_CART:
-      if (isExist(state.cart, action.payload)) {
+      if (state.cart.includes(action.payload)) {
         alert("Product already in cart");
         return state;
       }
       return {
         ...state,
-        cart: [...state.cart, { ...action.payload, cart: true }],
+        cart: [...state.cart, action.payload],
+        wishlist: state.wishlist.filter(
+          (product) => product.product_id !== action.payload.product_id,
+        ),
       };
     case ADD_TO_WISHLIST:
-      if (isExist(state.wishlist, action.payload)) {
+      if (state.wishlist.includes(action.payload)) {
         alert("Product already in wishlist");
         return state;
       }
       return {
         ...state,
-        wishlist: [...state.wishlist, { ...action.payload, wishlist: true }],
+        wishlist: [...state.wishlist, action.payload],
       };
     case REMOVE_FROM_CART:
       return {

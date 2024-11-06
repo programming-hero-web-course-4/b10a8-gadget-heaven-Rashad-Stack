@@ -77,11 +77,11 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="navbar-end space-x-2">
-            <NavbarIcons total={cart.length}>
+            <NavbarIcons total={cart.length} to="/dashboard?tab=cart">
               <HiOutlineShoppingCart />
             </NavbarIcons>
 
-            <NavbarIcons total={wishlist.length}>
+            <NavbarIcons total={wishlist.length} to="/dashboard?tab=wishlist">
               <HiOutlineHeart />
             </NavbarIcons>
           </div>

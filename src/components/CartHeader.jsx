@@ -27,7 +27,11 @@ export default function CartHeader() {
           >
             Sort by Price <HiAdjustmentsVertical />
           </Button>
-          <Button type="gradient" handleClick={() => setOpen(!open)}>
+          <Button
+            type="gradient"
+            handleClick={() => setOpen(!open)}
+            disabled={totalCost === 0}
+          >
             Purchase
           </Button>
         </div>

@@ -34,8 +34,8 @@ export default function Hero({ title, description, className }) {
               Cart
             </Button>
             <Button
-              handleClick={() => handleClick("wishlist")}
               type={activeTab === "wishlist" ? "default" : "outline-base"}
+              handleClick={() => handleClick("wishlist")}
             >
               Wishlist
             </Button>

@@ -9,8 +9,11 @@ import { ADD_TO_CART, ADD_TO_WISHLIST } from "../context/actionType";
 import useGlobalState from "../hooks/useGlobalState";
 
 export default function ProductDetails() {
-  const { dispatch } = useGlobalState();
-  const state = useLocation();
+  const {
+    state: { wishlist },
+    dispatch,
+  } = useGlobalState();
+  const { state = {} } = useLocation();
 
   const {
     product_title,
@@ -20,7 +23,7 @@ export default function ProductDetails() {
     specification,
     rating,
     product_image,
-  } = state?.state || {};
+  } = state;
 
   return (
     <>
@@ -92,16 +95,17 @@ export default function ProductDetails() {
               <Button
                 type="primary"
                 handleClick={() =>
-                  dispatch({ type: ADD_TO_CART, payload: state.state })
+                  dispatch({ type: ADD_TO_CART, payload: state })
                 }
               >
                 Add To Card <HiOutlineShoppingCart className="text-xl" />
               </Button>
               <button
-                className="rounded-full border p-2 text-xl transition-transform active:scale-75"
+                className="rounded-full border p-2 text-xl transition-transform active:scale-75 disabled:cursor-not-allowed disabled:opacity-50"
                 onClick={() =>
-                  dispatch({ type: ADD_TO_WISHLIST, payload: state.state })
+                  dispatch({ type: ADD_TO_WISHLIST, payload: state })
                 }
+                disabled={wishlist.includes(state)}
               >
                 <HiOutlineHeart />
               </button>
