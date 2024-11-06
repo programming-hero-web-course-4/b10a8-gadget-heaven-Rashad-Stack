@@ -5,8 +5,8 @@ import {
   CartesianGrid,
   ComposedChart,
   Legend,
-  Line,
   ResponsiveContainer,
+  Scatter,
   Tooltip,
   XAxis,
   YAxis,
@@ -14,106 +14,34 @@ import {
 
 const data = [
   {
-    name: "Small Steel Keyboard",
+    name: "Computers",
     price: 494,
     total: 372,
     rating: 3.7,
   },
   {
-    name: "Practical Steel Salad",
+    name: "Phones",
     price: 251,
-    total: 667,
+    total: 467,
     rating: 4.6,
   },
   {
-    name: "Incredible Frozen Towels",
+    name: "Smart watches",
     price: 61,
-    total: 514,
+    total: 214,
     rating: 2.9,
   },
   {
-    name: "Handcrafted Cotton Shoes",
-    price: 434,
-    total: 903,
+    name: "Chargers",
+    price: 134,
+    total: 303,
     rating: 5,
   },
   {
-    name: "Ergonomic Granite Fish",
+    name: "Power Banks",
     price: 390,
     total: 518,
     rating: 4.1,
-  },
-  {
-    name: "Rustic Steel Keyboard",
-    price: 242,
-    total: 843,
-    rating: 1.4,
-  },
-  {
-    name: "Generic Cotton Bacon",
-    price: 89,
-    total: 445,
-    rating: 4.1,
-  },
-  {
-    name: "Tasty Metal Gloves",
-    price: 235,
-    total: 737,
-    rating: 2.2,
-  },
-  {
-    name: "Licensed Steel Fish",
-    price: 183,
-    total: 230,
-    rating: 4.9,
-  },
-  {
-    name: "Licensed Granite Bike",
-    price: 423,
-    total: 622,
-    rating: 3.2,
-  },
-  {
-    name: "Handmade Fresh Hat",
-    price: 100,
-    total: 221,
-    rating: 1.3,
-  },
-  {
-    name: "Refined Fresh Cheese",
-    price: 356,
-    total: 301,
-    rating: 3.7,
-  },
-  {
-    name: "Practical Concrete Pizza",
-    price: 493,
-    total: 661,
-    rating: 1.7,
-  },
-  {
-    name: "Handcrafted Steel Car",
-    price: 287,
-    total: 206,
-    rating: 2.3,
-  },
-  {
-    name: "Incredible Cotton Mouse",
-    price: 212,
-    total: 710,
-    rating: 3.8,
-  },
-  {
-    name: "Small Soft Chair",
-    price: 494,
-    total: 422,
-    rating: 2.8,
-  },
-  {
-    name: "Refined Granite Keyboard",
-    price: 280,
-    total: 512,
-    rating: 3.3,
   },
 ];
 
@@ -136,12 +64,12 @@ export default function DashboardChart() {
       >
         <CartesianGrid stroke="#f5f5f5" vertical={false} />
         <XAxis dataKey="name" />
-        <YAxis />
+        <YAxis dataKey="price" />
         <Tooltip />
         <Legend content={CustomLegend} />
-        <Area type="linear" dataKey="total" fill="#BF87EE" stroke="#BF87EE" />
-        <Bar dataKey="price" barSize={40} fill="#9538E2" />
-        <Line type="bump" dataKey="rating" stroke="#FF0000" />
+        <Area type="linear" dataKey="price" fill="#BF87EE" stroke="#BF87EE" />
+        <Bar dataKey="total" barSize={40} fill="#9538E2" />
+        <Scatter dataKey="rating" fill="#FF0000" />
       </ComposedChart>
     </ResponsiveContainer>
   );

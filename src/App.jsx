@@ -6,6 +6,7 @@ import { GlobalStateProvider } from "./context/GlobalStateProvider";
 import ContactUs from "./pages/ContactUs";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import ProductDetails from "./pages/ProductDetails";
 import RootLayout from "./pages/RootLayout";
 import Statistics from "./pages/Statistics";
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     path: "/",
     loader: getProducts,
     element: <RootLayout />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",

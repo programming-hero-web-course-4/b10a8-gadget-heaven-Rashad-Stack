@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 import { Outlet, useLoaderData } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -20,6 +21,7 @@ export default function RootLayout() {
         <Outlet />
       </main>
       <Footer />
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 }

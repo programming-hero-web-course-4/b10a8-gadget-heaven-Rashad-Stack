@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { createContext, useReducer } from "react";
+import toast from "react-hot-toast";
 import {
   ADD_TO_CART,
   ADD_TO_WISHLIST,
@@ -20,9 +21,10 @@ const reducer = (state, action) => {
       return { ...state, products: action.payload };
     case ADD_TO_CART:
       if (state.cart.includes(action.payload)) {
-        alert("Product already in cart");
+        toast.error("Already exist in cart!");
         return state;
       }
+      toast.success("Added to cart!");
       return {
         ...state,
         cart: [...state.cart, action.payload],
@@ -32,14 +34,16 @@ const reducer = (state, action) => {
       };
     case ADD_TO_WISHLIST:
       if (state.wishlist.includes(action.payload)) {
-        alert("Product already in wishlist");
+        toast.error("Product already in wishlist");
         return state;
       }
+      toast.success("Added to wishlist");
       return {
         ...state,
         wishlist: [...state.wishlist, action.payload],
       };
     case REMOVE_FROM_CART:
+      toast.success("Removed from cart");
       return {
         ...state,
         cart: state.cart.filter(
@@ -47,6 +51,7 @@ const reducer = (state, action) => {
         ),
       };
     case REMOVE_FROM_WISHLIST:
+      toast.success("Removed from wishlist");
       return {
         ...state,
         wishlist: state.wishlist.filter(
