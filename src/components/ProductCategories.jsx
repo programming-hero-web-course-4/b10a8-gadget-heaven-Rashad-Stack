@@ -5,7 +5,7 @@ export default function ProductCategories() {
   const { category } = useParams();
 
   return (
-    <ul className="fle w-full space-y-3 rounded-xl bg-white p-4 max-sm:mx-2 md:w-60">
+    <ul className="fle h-fit w-full space-y-3 rounded-xl bg-white p-4 max-sm:mx-2 md:w-60">
       <li
         className={`${!category ? "bg-brand text-white" : "bg-base-300 text-gray-600"} rounded-full text-sm`}
       >
